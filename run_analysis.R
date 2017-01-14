@@ -1,4 +1,3 @@
-library(readr)
 library(plyr)
 library(dplyr)
 
@@ -37,17 +36,18 @@ colnames(all_subjects) <- "subjectId"
 all_activities <- join(all_activities, activity_labels, by = "activityId")
 
 # Filter out measurements that are not mean() or std()
-all_measurements <- all_measurements[, grep("mean()|std()", colnames(all_measurements))]
-all_measurements <- all_measurements[, -grep("meanFreq()", colnames(all_measurements))]
+all_measurements <- all_measurements[, grep("mean[(][)]|std[(][)]", colnames(all_measurements))]
 
 # Merge everything in one dataset, and clean it up
 dataset <- bind_cols(all_subjects, all_activities, all_measurements)
 dataset <- dataset %>%
-	select(-activityId) %>%w
+	select(-activityId) %>%
 	dplyr::rename(subject = subjectId, activity = activityLabel)
 
 # Possible alternative: 'tall' version of the same data ~ melting measurements in the dataset
-# molten_dataset <- melt(dataset, id = c("subject", "activity"))
+# library(reshape2)
+# molten_dataset <- melt(dataset, id = c("subject", "activity"), variable.name = "feature")
+
 
 # Second summary dataset with the average of each variable for each activity and subject
 summary_dataset <- dataset %>%
