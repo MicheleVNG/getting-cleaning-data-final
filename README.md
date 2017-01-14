@@ -93,7 +93,7 @@ Then, the script reads the `activity_labels.txt` and `features.txt` files, which
 Then, the script reads the x / y / subject files for both the `train` folder (70% of the data) and the `test` folder (30% of the data).  
 Specifying `colClasses = "numeric"` speeds up reading the large `x_train.txt` and `x_test.txt` files.
 
-#### Merge into one dataset <a title="bindrows"></a>
+#### Merge into one dataset
 
 ```{r}
 # Merge train and test data
@@ -129,7 +129,7 @@ The script names the measurements using the `features$featureName` character vec
 
 Then, the list of activities performed (`all_activities`) is labelled with the `activity_labels` through a `plyr::join()` function.
 
-#### Clean and create the dataset <a title="grep"></a><a title="gsubnames"></a>
+#### Clean and create the dataset
 
 ```{r}
 # Filter out measurements that are not mean() or std()
