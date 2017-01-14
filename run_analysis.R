@@ -20,7 +20,6 @@ x_test 		<- read.table(file.path("test", "X_test.txt"), colClasses = "numeric")
 y_test 		<- read.table(file.path("test", "Y_test.txt"))
 subject_test 	<- read.table(file.path("test", "subject_test.txt"))
 
-# ### TASK 1 ###
 # Merge train and test data
 all_measurements <- bind_rows(x_train, x_test)
 all_activities <- bind_rows(y_train, y_test)
@@ -29,7 +28,6 @@ all_subjects <- bind_rows(subject_train, subject_test)
 # Clear some unnecessary variables from the workspace
 rm(list = c("x_train", "y_train", "subject_train", "x_test", "y_test", "subject_test"))
 
-# ### TASK 3 + 4 ###
 # Name the columns in the three data frames
 colnames(all_measurements) <- features$featureName
 colnames(all_activities) <- "activityId"
@@ -38,7 +36,6 @@ colnames(all_subjects) <- "subjectId"
 # Add labels to the all_actvities data frame
 all_activities <- join(all_activities, activity_labels, by = "activityId")
 
-# ### TASK 2 ###
 # Filter out measurements that are not mean() or std()
 all_measurements <- all_measurements[, grep("mean()|std()", colnames(all_measurements))]
 all_measurements <- all_measurements[, -grep("meanFreq()", colnames(all_measurements))]
@@ -52,7 +49,6 @@ dataset <- dataset %>%
 # Possible alternative: 'tall' version of the same data ~ melting measurements in the dataset
 # molten_dataset <- melt(dataset, id = c("subject", "activity"))
 
-# ### TASK 5 ###
 # Second summary dataset with the average of each variable for each activity and subject
 summary_dataset <- dataset %>%
 	tbl_df %>% 
