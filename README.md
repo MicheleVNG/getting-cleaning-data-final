@@ -1,5 +1,6 @@
 # Getting and Cleaning Data final assigment
-Final Assignment for the Getting and Cleaning Data course on Coursera
+
+Final Assignment for the Getting and Cleaning Data course on Coursera.
 
 This README file is intended to explain how the [`run_analysis.R`](run_analysis.R) script works.
 
@@ -23,11 +24,11 @@ The `dataset` variable meets the assignment requirements. Specifically, steps 1-
 
 1. **Merges the training and the test sets to create one data set.**  
    The resulting dataset is made of both the training and the test sets, merged using `bind_rows()`.  
-   See [details on `bind_rows()`](#bindrows) below.
+   See [details on `bind_rows()`](#merge-into-one-dataset) below.
 
 2. **Extracts only the measurements on the mean and standard deviation for each measurement.**  
    The measurements on the mean and standard deviation were extracted using `grep()` on the column names.  
-   See [details on `grep()`](#grep) below.
+   See [details on `grep()`](#clean-and-create-the-dataset) below.
 
 3. **Uses descriptive activity names to name the activities in the data set.**  
    The activities were named using the activity labels stored in the `activity_labels.txt` file.  
@@ -35,7 +36,7 @@ The `dataset` variable meets the assignment requirements. Specifically, steps 1-
 
 4. **Appropriately labels the data set with descriptive variable names.**  
    The measurements were labelled using the feature names stored in the `features.txt` file.  
-   The names were then further simplified [using `gsub()`](#gsubnames).  
+   The names were then further simplified [using `gsub()`](#clean-and-create-the-dataset).  
    Check that the names are descriptive with `colnames(dataset)`.
 
 ### The `summary_dataset` variable 
@@ -43,7 +44,7 @@ The `dataset` variable meets the assignment requirements. Specifically, steps 1-
 The `summary_dataset` variable meets the 5th assignment requirement:
 
 5. **From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.**  
-   The `dataset` was summarized using the `group_by()` and `summarize_each()` functions from the `dplyr` package.  See below for [more details on the summarizing process](#summarizing).  
+   The `dataset` was summarized using the `group_by()` and `summarize_each()` functions from the `dplyr` package.  See below for [more details on the summarizing process](#summary-dataset).  
    The `summary_dataset` variable has 180 rows with the average of each variable for each possible combination of activity and subject.
 
 ---
@@ -173,7 +174,7 @@ head(molten_dataset)
 # 6       1 STANDING tBodyAcc-mean()-X 0.2771988
 ```
 
-### Summary dataset <a title="summarizing"></a>
+### Summary dataset
 
 ```{r}
 # Second summary dataset with the average of each variable for each activity and subject
