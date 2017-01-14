@@ -3,20 +3,67 @@ Final Assignment for the Getting and Cleaning Data course on Coursera
 
 This README file is intended to explain how the [run_analysis.R](run_analysis.R) script works.
 
-## Summary
+If you are a Coursera evaluator, please read the following paragraph with the explanation of the script. If necessary, you can further examine my solution by going to the [Extended script explanation](#extended-script-explanation) section.
 
-*To be completed*
+## Summary for the evaluators
 
-## Extended explanation
+The [tidy-data](tidy-data) folder contains the two datasets required for the assignment. You can read the files by using the simple commands:
 
-### Libraries
+```{r}
+setwd("tidy-data")
+dataset <- read.table("dataset.txt", header = TRUE)
+summary_dataset <- read.table("summary_dataset.txt", header = TRUE)
+```
+
+The [`CodeBook.md`](CodeBook.md) file contains the full explanation of the dataset variables. In the following, there is an explanation of how the variables meet the assignment requirements.
+
+### The `dataset` variable 
+
+The `dataset` variable meets the assignment requirements. Specifically, steps 1-4 of the requirements:
+
+1. **Merges the training and the test sets to create one data set.**  
+   The resulting dataset is made of both the training and the test sets, merged using `bind_rows()`.  
+   See [details on `bind_rows()`](#bindrows) below.
+
+2. **Extracts only the measurements on the mean and standard deviation for each measurement.**  
+   The measurements on the mean and standard deviation were extracted using `grep()` on the column names.  
+   See [details on `grep()`](#grep) below.
+
+3. **Uses descriptive activity names to name the activities in the data set.**  
+   The activities were named using the activity labels stored in the `activity_labels.txt` file.  
+   Check that the activities are correctly named by having a look at the variable with `unique(dataset$activity)`.
+
+4. **Appropriately labels the data set with descriptive variable names.**  
+   The measurements were labelled using the feature names stored in the `features.txt` file.  
+   The names were then further simplified [using `gsub()`](#gsubnames).  
+   Check that the names are descriptive with `colnames(dataset)`.
+
+### The `summary_dataset` variable 
+
+The `summary_dataset` variable meets the 5th assignment requirement:
+
+5. **From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.**  
+   The `dataset` was summarized using the `group_by()` and `summarize_each()` functions from the `dplyr` package.  See below for [more details on the summarizing process](#summarizing).  
+   The `summary_dataset` variable has 180 rows with the average of each variable for each possible combination of activity and subject.
+
+---
+
+## Extended script explanation
+
+*This paragraph should not be required for the evaluation of this assignment, but feel free to read more to understand the script better.*
+
+### Necessary libraries
 
 ```{r}
 library(plyr)
 library(dplyr)
 ```
 
-### Reading
+Both the `plyr` and `dplyr` libraries are needed for the analysis.
+
+### Part 1: Reading data
+
+#### Read files
 
 ```{r}
 # Change the working directory to the 'data' directory
@@ -45,7 +92,7 @@ Then, the script reads the `activity_labels.txt` and `features.txt` files, which
 Then, the script reads the x / y / subject files for both the `train` folder (70% of the data) and the `test` folder (30% of the data).  
 Specifying `colClasses = "numeric"` speeds up reading the large `x_train.txt` and `x_test.txt` files.
 
-### Merge into one dataset
+#### Merge into one dataset <a title="bindrows"></a>
 
 ```{r}
 # Merge train and test data
@@ -63,7 +110,7 @@ The dataset is still splitted into three variables, `all_measurements`, `all_act
 
 The script then `rm()`'s some now-unnecessary variables from the working environment, to free up memory.
 
-### Create the dataset
+### Part 2: Create the dataset
 
 #### Label everything
 
@@ -81,7 +128,7 @@ The script names the measurements using the `features$featureName` character vec
 
 Then, the list of activities performed (`all_activities`) is labelled with the `activity_labels` through a `plyr::join()` function.
 
-#### Clean and create the dataset
+#### Clean and create the dataset <a title="grep"></a><a title="gsubnames"></a>
 
 ```{r}
 # Filter out measurements that are not mean() or std()
@@ -92,13 +139,18 @@ dataset <- bind_cols(all_subjects, all_activities, all_measurements)
 dataset <- dataset %>%
     select(-activityId) %>%w
     dplyr::rename(subject = subjectId, activity = activityLabel)
+colnames(dataset) <- gsub("[(][)]", "", colnames(dataset))
+colnames(dataset) <- gsub("-mean-", "Mean.", colnames(dataset))
+colnames(dataset) <- gsub("-std-", "Std.", colnames(dataset))
+colnames(dataset) <- gsub("-mean", "Mean", colnames(dataset))
+colnames(dataset) <- gsub("-std", "Std", colnames(dataset))
 ```
 
 As required by the assignment instructions, the script "*Extracts only the measurements on the mean and standard deviation for each measurement.*" using a `grep()` search on the column names.
 
 Everything is now ready for merging into one `dataset`, simply by `bind_cols()`.
 
-The resulting `dataset` is then cleaned up a bit by removing the `activityId` column and renaming the `subjectId` and `activityLabel` columns to simpler names.
+The resulting `dataset` is then cleaned up a bit by removing the `activityId` column and renaming the `subjectId` and `activityLabel` columns to simpler names. Also, the column names are futher simplified to make them syntactically valid (see `?make.names` for more info).
 
 The resulting dataset can be described as a *wide* dataset, that is the best possible representation of the data which preserves the original observations as rows.
 
@@ -121,6 +173,29 @@ head(molten_dataset)
 # 6       1 STANDING tBodyAcc-mean()-X 0.2771988
 ```
 
-### Summary dataset
+### Summary dataset <a title="summarizing"></a>
 
-*To be completed*
+```{r}
+# Second summary dataset with the average of each variable for each activity and subject
+summary_dataset <- dataset %>%
+    tbl_df %>% 
+    group_by(subject, activity) %>%
+    summarize_each(funs(mean))
+```
+
+To meet the last assignment requirement, the script creates a second, independent `summary_dataset` with *the average of each variable for each activity and each subject*.
+
+To achieve this goal, the `dataset` is grouped by subject and activity with the `dplyr::group_by()` function, and then the `dplyr::summarize_each()` function takes the `mean()` of each column, excluding `subject` and `activity`.
+
+The total number of rows of the `summary_dataset` is therefore 180, the product of the number of unique subjects (30) and the number of unique activities (6).
+
+```{r}
+length(unique(dataset$subject))
+# [1] 30
+
+length(unique(dataset$activity))
+# [1] 6
+
+nrow(summary_dataset)
+# [1] 180
+```
