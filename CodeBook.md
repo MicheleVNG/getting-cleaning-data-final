@@ -16,198 +16,198 @@
   * LAYING
 
 
-* **tBodyAcc-mean()-X**  
-   **tBodyAcc-mean()-Y**  
-   **tBodyAcc-mean()-Z**  
+* **tBodyAccMean.X**  
+   **tBodyAccMean.Y**  
+   **tBodyAccMean.Z**  
    *Numeric, [-1,1]*  
    Average of body acceleration 3-axial signal (each axis is on a different variable), normalized and bounded within [-1,1].  
    Details: see [note 1](#note1).
 
-* **tBodyAcc-std()-X**  
-   **tBodyAcc-std()-Y**  
-   **tBodyAcc-std()-Z**  
+* **tBodyAccStd.X**  
+   **tBodyAccStd.Y**  
+   **tBodyAccStd.Z**  
    *Numeric, [-1,1]*  
    Standard deviation of body acceleration 3-axial signal (each axis is on a different variable), normalized and bounded within [-1,1].  
    Details: see [note 1](#note1).
 
-* **tGravityAcc-mean()-X**  
-   **tGravityAcc-mean()-Y**  
-   **tGravityAcc-mean()-Z**  
+* **tGravityAccMean.X**  
+   **tGravityAccMean.Y**  
+   **tGravityAccMean.Z**  
    *Numeric, [-1,1]*  
    Average of gravity acceleration 3-axial signal (each axis is on a different variable), normalized and bounded within [-1,1].  
    Details: see [note 1](#note1).
 
-* **tGravityAcc-std()-X**  
-   **tGravityAcc-std()-Y**  
-   **tGravityAcc-std()-Z**  
+* **tGravityAccStd.X**  
+   **tGravityAccStd.Y**  
+   **tGravityAccStd.Z**  
    *Numeric, [-1,1]*  
    Standard deviation of gravity acceleration 3-axial signal (each axis is on a different variable), normalized and bounded within [-1,1].  
    Details: see [note 1](#note1).
 
-* **tBodyAccJerk-mean()-X**  
-   **tBodyAccJerk-mean()-Y**  
-   **tBodyAccJerk-mean()-Z**  
+* **tBodyAccJerkMean.X**  
+   **tBodyAccJerkMean.Y**  
+   **tBodyAccJerkMean.Z**  
    *Numeric, [-1,1]*  
    Average of the Jerk signal calculated on the body acceleration 3-axial signal (each axis is on a different variable), normalized and bounded within [-1,1].  
    Details: see [note 2](#note2).
 
-* **tBodyAccJerk-std()-X**  
-   **tBodyAccJerk-std()-Y**  
-   **tBodyAccJerk-std()-Z**  
+* **tBodyAccJerkStd.X**  
+   **tBodyAccJerkStd.Y**  
+   **tBodyAccJerkStd.Z**  
    *Numeric, [-1,1]*  
    Standard deviation of the Jerk signal calculated on the body acceleration 3-axial signal (each axis is on a different variable), normalized and bounded within [-1,1].  
    Details: see [note 2](#note2).
 
-* **tBodyGyro-mean()-X**  
-   **tBodyGyro-mean()-Y**  
-   **tBodyGyro-mean()-Z**  
+* **tBodyGyroMean.X**  
+   **tBodyGyroMean.Y**  
+   **tBodyGyroMean.Z**  
    *Numeric, [-1,1]*  
    Average of body angular velocity 3-axial signal (each axis is on a different variable), normalized and bounded within [-1,1].  
    Details: see [note 1](#note1).
 
-* **tBodyGyro-std()-X**  
-   **tBodyGyro-std()-Y**  
-   **tBodyGyro-std()-Z**  
+* **tBodyGyroStd.X**  
+   **tBodyGyroStd.Y**  
+   **tBodyGyroStd.Z**  
    *Numeric, [-1,1]*  
    Standard deviation of body angular velocity 3-axial signal (each axis is on a different variable), normalized and bounded within [-1,1].  
    Details: see [note 1](#note1).
 
-* **tBodyGyroJerk-mean()-X**  
-   **tBodyGyroJerk-mean()-Y**  
-   **tBodyGyroJerk-mean()-Z**  
+* **tBodyGyroJerkMean.X**  
+   **tBodyGyroJerkMean.Y**  
+   **tBodyGyroJerkMean.Z**  
    *Numeric, [-1,1]*  
    Average of the Jerk signal calculated on the body angular velocity 3-axial signal (each axis is on a different variable), normalized and bounded within [-1,1].  
    Details: see [note 2](#note2).
 
-* **tBodyGyroJerk-std()-X**  
-   **tBodyGyroJerk-std()-Y**  
-   **tBodyGyroJerk-std()-Z**  
+* **tBodyGyroJerkStd.X**  
+   **tBodyGyroJerkStd.Y**  
+   **tBodyGyroJerkStd.Z**  
    *Numeric, [-1,1]*  
    Standard deviation of the Jerk signal calculated on the body angular velocity 3-axial signal (each axis is on a different variable), normalized and bounded within [-1,1].  
    Details: see [note 2](#note2).
 
-* **tBodyAccMag-mean()**
+* **tBodyAccMagMean**
    *Numeric, [-1,1]*  
    Average of the magnitude of the body acceleration signal, normalized and bounded within [-1,1].  
    Details: see [note 3](#note3).
 
-* **tBodyAccMag-std()**
+* **tBodyAccMagStd**
    *Numeric, [-1,1]*  
    Standard deviation of the magnitude of the body acceleration signal, normalized and bounded within [-1,1].  
    Details: see [note 3](#note3).
 
-* **tGravityAccMag-mean()**
+* **tGravityAccMagMean**
    *Numeric, [-1,1]*  
    Average of the magnitude of the gravity acceleration signal, normalized and bounded within [-1,1].  
    Details: see [note 3](#note3).
 
-* **tGravityAccMag-std()**
+* **tGravityAccMagStd**
    *Numeric, [-1,1]*  
    Standard deviation of the magnitude of the gravity acceleration signal, normalized and bounded within [-1,1].  
    Details: see [note 3](#note3).
 
-* **tBodyAccJerkMag-mean()**
+* **tBodyAccJerkMagMean**
    *Numeric, [-1,1]*  
    Average of the magnitude of the Jerk signal calculated on the gravity acceleration signal, normalized and bounded within [-1,1].  
    Details: see [note 2](#note2) and [note 3](#note3).
 
-* **tBodyAccJerkMag-std()**
+* **tBodyAccJerkMagStd**
    *Numeric, [-1,1]*  
    Standard deviation of the magnitude of the Jerk signal calculated on the gravity acceleration signal, normalized and bounded within [-1,1].  
    Details: see [note 2](#note2) and [note 3](#note3).
 
-* **tBodyGyroMag-mean()**
+* **tBodyGyroMagMean**
    *Numeric, [-1,1]*  
    Average of the magnitude of the angular velocity signal, normalized and bounded within [-1,1].  
    Details: see [note 3](#note3).
 
-* **tBodyGyroMag-std()**
+* **tBodyGyroMagStd**
    *Numeric, [-1,1]*  
    Standard deviation of the magnitude of the angular velocity signal, normalized and bounded within [-1,1].  
    Details: see [note 3](#note3).
 
-* **tBodyGyroJerkMag-mean()**
+* **tBodyGyroJerkMagMean**
    *Numeric, [-1,1]*  
    Average of the magnitude of the Jerk signal calculated on the angular velocity signal, normalized and bounded within [-1,1].  
    Details: see [note 2](#note2) and [note 3](#note3).
 
-* **tBodyGyroJerkMag-std()**
+* **tBodyGyroJerkMagStd**
    *Numeric, [-1,1]*  
    Standard deviation of the magnitude of the Jerk signal calculated on the angular velocity signal, normalized and bounded within [-1,1].  
    Details: see [note 2](#note2) and [note 3](#note3).
 
-* **fBodyAcc-mean()-X**  
-   **fBodyAcc-mean()-Y**  
-   **fBodyAcc-mean()-Z**  
+* **fBodyAccMean.X**  
+   **fBodyAccMean.Y**  
+   **fBodyAccMean.Z**  
    *Numeric, [-1,1]*  
    Average of Fast Fourier Transform (FFT) applied on the body acceleration 3-axial signal (each axis is on a different variable), normalized and bounded within [-1,1].
 
-* **fBodyAcc-std()-X**  
-   **fBodyAcc-std()-Y**  
-   **fBodyAcc-std()-Z**  
+* **fBodyAccStd.X**  
+   **fBodyAccStd.Y**  
+   **fBodyAccStd.Z**  
    *Numeric, [-1,1]*  
    Standard deviation of Fast Fourier Transform (FFT) applied on the body acceleration 3-axial signal (each axis is on a different variable), normalized and bounded within [-1,1].
 
-* **fBodyAccJerk-mean()-X**  
-   **fBodyAccJerk-mean()-Y**  
-   **fBodyAccJerk-mean()-Z**  
+* **fBodyAccJerkMean.X**  
+   **fBodyAccJerkMean.Y**  
+   **fBodyAccJerkMean.Z**  
    *Numeric, [-1,1]*  
    Average of Fast Fourier Transform (FFT) applied on the Jerk signal calculated on the body acceleration 3-axial signal (each axis is on a different variable), normalized and bounded within [-1,1].
 
-* **fBodyAccJerk-std()-X**  
-   **fBodyAccJerk-std()-Y**  
-   **fBodyAccJerk-std()-Z**  
+* **fBodyAccJerkStd.X**  
+   **fBodyAccJerkStd.Y**  
+   **fBodyAccJerkStd.Z**  
    *Numeric, [-1,1]*  
    Standard deviation of Fast Fourier Transform (FFT) applied on the Jerk signal calculated on the body acceleration 3-axial signal (each axis is on a different variable), normalized and bounded within [-1,1].
 
-* **fBodyGyro-mean()-X**  
-   **fBodyGyro-mean()-Y**  
-   **fBodyGyro-mean()-Z**  
+* **fBodyGyroMean.X**  
+   **fBodyGyroMean.Y**  
+   **fBodyGyroMean.Z**  
    *Numeric, [-1,1]*  
    Average of Fast Fourier Transform (FFT) applied on the body angular velocity 3-axial signal (each axis is on a different variable), normalized and bounded within [-1,1].
 
-* **fBodyGyro-std()-X**  
-   **fBodyGyro-std()-Y**  
-   **fBodyGyro-std()-Z**  
+* **fBodyGyroStd.X**  
+   **fBodyGyroStd.Y**  
+   **fBodyGyroStd.Z**  
    *Numeric, [-1,1]*  
    Standard deviation of Fast Fourier Transform (FFT) applied on the body angular velocity 3-axial signal (each axis is on a different variable), normalized and bounded within [-1,1].
 
-* **fBodyAccMag-mean()**  
+* **fBodyAccMagMean**  
    *Numeric, [-1,1]*  
    Average of the magnitude of the Fast Fourier Transform (FFT) applied on the body acceleration signal, normalized and bounded within [-1,1].  
    Details: see [note 3](#note3).
 
-* **fBodyAccMag-std()**  
+* **fBodyAccMagStd**  
    *Numeric, [-1,1]*  
    Standard deviation of the magnitude of the Fast Fourier Transform (FFT) applied on the body acceleration signal, normalized and bounded within [-1,1].  
    Details: see [note 3](#note3).
 
-* **fBodyBodyAccJerkMag-mean()**  
+* **fBodyBodyAccJerkMagMean**  
    *Numeric, [-1,1]*  
    Average of the magnitude of the Fast Fourier Transform (FFT) applied on the Jerk signal applied on the body acceleration signal, normalized and bounded within [-1,1].  
    Details: see [note 2](#note2) and [note 3](#note3).
 
-* **fBodyBodyAccJerkMag-std()**  
+* **fBodyBodyAccJerkMagStd**  
    *Numeric, [-1,1]*  
    Standard deviation of the magnitude of the Fast Fourier Transform (FFT) applied on the Jerk signal applied on the body acceleration signal, normalized and bounded within [-1,1].  
    Details: see [note 2](#note2) and [note 3](#note3).
 
-* **fBodyBodyGyroMag-mean()**  
+* **fBodyBodyGyroMagMean**  
    *Numeric, [-1,1]*  
    Average of the magnitude of the Fast Fourier Transform (FFT) applied on the body angular velocity signal, normalized and bounded within [-1,1].  
    Details: see [note 3](#note3).
 
-* **fBodyBodyGyroMag-std()**  
+* **fBodyBodyGyroMagStd**  
    *Numeric, [-1,1]*  
    Standard deviation of the magnitude of the Fast Fourier Transform (FFT) applied on the body angular velocity signal, normalized and bounded within [-1,1].  
    Details: see [note 3](#note3).
 
-* **fBodyBodyGyroJerkMag-mean()**  
+* **fBodyBodyGyroJerkMagMean**  
    *Numeric, [-1,1]*  
    Average of the magnitude of the Fast Fourier Transform (FFT) applied on the Jerk signal applied on the body angular velocity signal, normalized and bounded within [-1,1].  
    Details: see [note 2](#note2) and [note 3](#note3).
 
-* **fBodyBodyGyroJerkMag-std()**  
+* **fBodyBodyGyroJerkMagStd**  
    *Numeric, [-1,1]*  
    Standard deviation of the magnitude of the Fast Fourier Transform (FFT) applied on the Jerk signal applied on the body angular velocity signal, normalized and bounded within [-1,1].  
    Details: see [note 2](#note2) and [note 3](#note3).

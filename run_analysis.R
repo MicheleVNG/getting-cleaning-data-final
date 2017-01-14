@@ -43,6 +43,11 @@ dataset <- bind_cols(all_subjects, all_activities, all_measurements)
 dataset <- dataset %>%
 	select(-activityId) %>%
 	dplyr::rename(subject = subjectId, activity = activityLabel)
+colnames(dataset) <- gsub("[(][)]", "", colnames(dataset))
+colnames(dataset) <- gsub("-mean-", "Mean.", colnames(dataset))
+colnames(dataset) <- gsub("-std-", "Std.", colnames(dataset))
+colnames(dataset) <- gsub("-mean", "Mean", colnames(dataset))
+colnames(dataset) <- gsub("-std", "Std", colnames(dataset))
 
 # Possible alternative: 'tall' version of the same data ~ melting measurements in the dataset
 # library(reshape2)
@@ -54,3 +59,9 @@ summary_dataset <- dataset %>%
 	tbl_df %>% 
 	group_by(subject, activity) %>%
 	summarize_each(funs(mean))
+
+# Write to files
+setwd(basewd)
+if(!dir.exists("tidy-data")) dir.create("tidy-data")
+write.table(dataset, file = file.path("tidy-data", "dataset.txt"))
+write.table(summary_dataset, file = file.path("tidy-data", "summary_dataset.txt"))
