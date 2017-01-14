@@ -63,5 +63,9 @@ summary_dataset <- dataset %>%
 # Write to files
 setwd(basewd)
 if(!dir.exists("tidy-data")) dir.create("tidy-data")
-write.table(dataset, file = file.path("tidy-data", "dataset.txt"))
-write.table(summary_dataset, file = file.path("tidy-data", "summary_dataset.txt"))
+write.table(dataset,
+	    file = file.path("tidy-data", "dataset.txt"),
+	    row.names = FALSE)
+write.table(summary_dataset,
+	    file = file.path("tidy-data", "summary_dataset.txt"),
+	    row.names = FALSE)
