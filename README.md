@@ -1,13 +1,13 @@
 # Getting and Cleaning Data final assigment
 Final Assignment for the Getting and Cleaning Data course on Coursera
 
-This README file is intended to explain how the [run_analysis.R](run_analysis.R) script works.
+This README file is intended to explain how the [`run_analysis.R`](run_analysis.R) script works.
 
 If you are a Coursera evaluator, please read the following paragraph with the explanation of the script. If necessary, you can further examine my solution by going to the [Extended script explanation](#extended-script-explanation) section.
 
 ## Summary for the evaluators
 
-The [tidy-data](tidy-data) folder contains the two datasets required for the assignment. You can read the files by using the simple commands:
+The [`tidy-data`](tidy-data) folder contains the two datasets required for the assignment. You can read the files by using the simple commands:
 
 ```{r}
 setwd("tidy-data")
